@@ -1,0 +1,4 @@
+browser-choice=1
+browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="2">\r\n<system/>\r\n<external location\="C\:\\Program Files\\Internet Explorer\\iexplore.exe" name\="Internet Explorer"/>\r\n<external location\="C\:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" name\="Chrome"/>\r\n</web-browsers>
+eclipse.preferences.version=1
+internalWebBrowserHistory=file\:///E\:/project/cycle/src/main/webapp/resources/1.jpg|*|file\:/E\:/project/cycle/src/main/webapp/resources/1.jpg|*|http\://localhost\:8080/cycle/|*|http\://localhost\:8080/cycle/\#myCarousel|*|http\://localhost\:8080/cycle/\#mycarousel|*|http\://localhost\:8080/cycle/\#mycarouse1|*|

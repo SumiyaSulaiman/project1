@@ -1,0 +1,90 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<style>
+
+.row.flex{display:inline-flex;  width:100%;}
+img{width:50%;height=auto;}
+
+</style>
+</head>
+<body>
+
+<jsp:include page="header.jsp"></jsp:include>
+
+<div class="row" >
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="./resources/baby1.jpg">
+        <img src="./resources/baby1.jpg" >
+        <div class="caption">
+          <p>Luusa Cow Design Tricycle With Canopy - Blue</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="thumbnail" >
+      <a href="./resources/baby2.jpg">
+        <img src="./resources/baby2.jpg" >
+        <div class="caption">
+          <p>Lorem ipsum...</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="./resources/kid1.jpg">
+        <img src="./resources/kid1.jpg" style="width:60%;">
+        <div class="caption">
+          <p>Luvlap Starlight Baby Ride On (Blue)</p>
+        </div>
+      </a>
+    </div>
+  </div> 
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="./resources/baby3.jpg">
+        <img src="./resources/baby3.jpg">
+        <div class="caption">
+          <p>Chillafish Push On Bike - Green</p>
+        </div>
+      </a>
+    </div>
+  </div>
+	<div class="col-md-4">
+    <div class="thumbnail">
+      <a href="./resources/baby5.jpg">
+        <img src="./resources/baby5.jpg">
+        <div class="caption">
+          <p>Mee Mee Baby Cycle Tricycle  (Red)</p>
+        </div>
+      </a>
+    </div>
+  </div>
+	
+	<div class="col-md-4">
+    <div class="thumbnail">
+      <a href="./resources/kid2.jpg">
+        <img src="./resources/kid2.jpg">
+        <div class="caption">
+          <p>Hero Kids Bicycle Blaze 16 T</p>
+        </div>
+      </a>
+    </div>
+  </div>
+	
+</div>	
+
+
+
+<jsp:include page="footer.jsp"></jsp:include>
+
+</body>
+</html>
