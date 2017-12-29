@@ -3,6 +3,8 @@
 	<name>cycle</name>
 	<comment></comment>
 	<projects>
+		<project>cyclebackend</project>
+		<project>Servers</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

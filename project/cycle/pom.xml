@@ -20,6 +20,11 @@
     <artifactId>spring-webmvc</artifactId>
     <version>4.3.12.RELEASE</version>
     </dependency>
+    <dependency>
+    <groupId>com.niit</groupId>
+  <artifactId>cyclebackend</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+    </dependency>
     
 
     
