@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.niit.cyclebackend.dao.CategoryDao;
 import com.niit.cyclebackend.model.Category;
+import com.niit.cyclebackend.model.Supplier;
 
 
 @Repository("CategoryDao")
@@ -32,28 +33,43 @@ public class CategoryDaoImpl implements CategoryDao {
 		s.beginTransaction();
 		s.save(c);
 		s.getTransaction().commit();
-		
+		s.close();
 		
 	}
 
 	public void updateCategory(Category c) {
-		// TODO Auto-generated method stub
+		Session s=sf.openSession();
+		s.beginTransaction();
+		s.update(c);
+		s.getTransaction().commit();
+		s.close();
 		
 	}
 
 	public void deleteCategory(Category c) {
-		// TODO Auto-generated method stub
+		Session s=sf.openSession();
+		s.beginTransaction();
+		s.delete(c);
+		s.getTransaction().commit();
+		s.close();
 		
 	}
 
 	public List<Category> getCategorys() {
-		// TODO Auto-generated method stub
-		return null;
+
+		Session s=sf.openSession();
+		List<Category> clist=s.createQuery("from Category").list();
+		return clist;
+		
 	}
 
 	public Category getCategory(int catId) {
-		// TODO Auto-generated method stub
-		return null;
+		Session s=sf.openSession();
+		s.beginTransaction();
+		Category c=(Category)s.get(Category.class, catId);
+		s.getTransaction().commit();
+		s.close();
+		return c;
 	}
 	
 	

@@ -1,6 +1,8 @@
 package com.niit.cyclebackend.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,10 +14,11 @@ import javax.persistence.Table;
 public class Product {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int productid;
 	private String productname;
-	private String productdesription;
-	private int quantity;
+	private String productdescription;
+	private int stock;
 	private double price;
 	
 	@ManyToOne
@@ -50,17 +53,18 @@ public class Product {
 	public void setProductname(String productname) {
 		this.productname = productname;
 	}
-	public String getProductdesription() {
-		return productdesription;
+	
+	public String getProductdescription() {
+		return productdescription;
 	}
-	public void setProductdesription(String productdesription) {
-		this.productdesription = productdesription;
+	public void setProductdescription(String productdescription) {
+		this.productdescription = productdescription;
 	}
-	public int getQuantity() {
-		return quantity;
+	public int getStock() {
+		return stock;
 	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 	public double getPrice() {
 		return price;

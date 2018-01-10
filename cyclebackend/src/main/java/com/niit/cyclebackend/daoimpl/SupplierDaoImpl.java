@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.cyclebackend.dao.SupplierDao;
+import com.niit.cyclebackend.model.Category;
 import com.niit.cyclebackend.model.Supplier;
 
 @Repository("SupplierDao")
@@ -36,23 +37,40 @@ public class SupplierDaoImpl implements SupplierDao {
 	}
 
 	public void updateSupplier(Supplier s) {
-		// TODO Auto-generated method stub
+		Session s1=sf.openSession();
+		s1.beginTransaction();
+		s1.update(s);
+		s1.getTransaction().commit();
+		s1.close();
 		
 	}
 
 	public void deletSupplier(Supplier s) {
-		// TODO Auto-generated method stub
-		
+		Session s1=sf.openSession();
+		s1.beginTransaction();
+		s1.delete(s);
+		s1.getTransaction().commit();
+		s1.close();
 	}
 
 	public List<Supplier> getSuppliers() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Session s=sf.openSession();
+		List<Supplier> slist=s.createQuery("from Supplier").list();
+		return slist;
+		
+		
 	}
 
 	public Supplier getSupplier(int supId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Session s=sf.openSession();
+		s.beginTransaction();
+		Supplier s1=(Supplier)s.get(Supplier.class, supId);
+		s.getTransaction().commit();
+		s.close();
+		return s1;
+		
 	}
 	
 

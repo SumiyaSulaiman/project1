@@ -20,7 +20,7 @@ public class ProductDaoImpl implements ProductDao {
 		
 		Session s=sf.openSession();
 		s.beginTransaction();
-		s.save(s);
+		s.save(p);
 		s.getTransaction().commit();
 	}
 
@@ -35,28 +35,42 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	public void updateProduct(Product p) {
-		// TODO Auto-generated method stub
+		
+		Session s=sf.openSession();
+		s.beginTransaction();
+		s.update(p);
+		s.getTransaction().commit();
+		s.close();
+		
 		
 	}
 
 	public void deletProdudct(Product p) {
-		// TODO Auto-generated method stub
+		Session s=sf.openSession();
+		s.beginTransaction();
+		s.delete(p);
+		s.getTransaction().commit();
+		s.close();
+		
 		
 	}
 
 	public List<Product> getProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		Session s=sf.openSession();
+		List<Product> plist=s.createQuery("from Product").list();
+		return plist;
 	}
 
 	public Product getProduct(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session s=sf.openSession();
+		Product p=(Product)s.get(Product.class, id);
+		return p;
 	}
 
 	public List<Product> retrieveProductByCat(int catId) {
-		// TODO Auto-generated method stub
-		return null;
+		Session s=sf.openSession();
+		List<Product> plist=s.createQuery("from Product where C_ID="+catId).list();
+		return plist;
 	}
 
 }

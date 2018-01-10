@@ -1,3 +1,4 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -90,14 +91,24 @@
 .btn-pref .btn {
     -webkit-border-radius:0 !important;
 }
-
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
 
 </style>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
-
+<h2 align="center">Admin</h2>
 <div class="container">
-<h2>Admin</h2>
+
 <div class="col-lg-10 col-sm-6">
     
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
@@ -136,7 +147,32 @@
 				<input type="submit" name="submit" id="submit" tabindex="4" class="form-control btn btn-submit" value="SUBMIT">
 			</div>
 		</form>
-  
+		<div class="container">
+    <div class="row col-md-9  custyle">
+    <table class="table table-striped custab">
+    <thead>
+    
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>DESCRIPTION</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+            
+               <c:forEach items="${clist }" var="c">
+				<tr class="active">
+					<td>${c.catid}</td>
+					<td>${c.catname}</td>
+					<td>${c.catdescription }</td>
+					<td class="text-center"><a class='btn btn-info btn-xs' href="editCat?id=${c.catid }"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="deleteCat?id=${c.catid }" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+				</tr>
+			</c:forEach>
+               
+    </table>
+    </div>
+</div>
+		
         </div>
         </div>
       
@@ -156,22 +192,52 @@
 			<input  type="submit" name="submit" id="submit" tabindex="4" class="form-control btn btn-submit" value="SUBMIT">
 		</div>
 	</form>
+	
+	<div class="container">
+    <div class="row col-md-9  custyle">
+     <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-list"></span>Sortable Lists
+                    </div>
+    <table class="table table-striped custab">
+    <thead>
+    
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>ADDRESS</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+            
+                <c:forEach items="${slist }" var="s">
+				<tr class="active">
+					<td>${s.supid}</td>
+					<td>${s.supname}</td>
+					<td>${s.supaddress }</td>
+					<td class="text-center"><a class='btn btn-info btn-xs' href="editSup?id=${s.supid }"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="deleteSup?id=${s.supid}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </c:forEach>
+    </table>
+    </div>
+</div>
+	</div>
+	
         </div>
         </div>
         <div class="tab-pane fade in" id="tab3">
          <br/>
       <div class="row">
-      <form id="Product" action="saveProduct" method="post" role="form" style="display: block;" enctype="multipart/form-data">
+      <form id="Product" action="saveProduct" method="post" role="form" style="display: block;" enctype="multipart/form-data" >
 			<div class="form-group">
 				<input type="text" name="productname" id="productname" tabindex="2" class="form-control" placeholder="Enter product name">
 			</div>
 
 			<div class="form-group">
-				<input type="text" name="productDescription" id="productDescription" tabindex="2" class="form-control" placeholder="About the product  ">
+				<input type="text" name="productdescription" id="productDescription" tabindex="2" class="form-control" placeholder="About the product  ">
 			</div>
 
 			<div class="form-group">
-				<input type="number" name="quantity" id="quantity" tabindex="2" class="form-control" placeholder="enter quantity">
+				<input type="number" name="stock" id="quantity" tabindex="2" class="form-control" placeholder="enter quantity">
 			</div>
 
 			<div class="form-group">
@@ -180,21 +246,21 @@
 
 			<div class="form-group">
 				    Choose Category: 
-     			<select name="cid">
+     			<select name="catid">
                     <option>SELECT CATEGORY</option>
         			<c:forEach items="${clist }" var="c">
-     						 <option value="${c.catId}">${c.catName}</option>
+     						 <option value="${c.catid}">${c.catname}</option>
          			 </c:forEach>
                  </select>
 
                </div>
                
 				<div class="form-group">
-				    Choose Publisher: 
-     			<select name="sid">
+				    Choose Supplier: 
+     			<select name="supid">
                     <option>SELECT SUPPLIER</option>
-        			<c:forEach items="${slist }" var="c">
-     						 <option value="${c.supId}">${c.supName}</option>
+        			<c:forEach items="${slist }" var="s">
+     						 <option value="${s.supid}">${s.supname}</option>
          			 </c:forEach>
                  </select>
 
@@ -202,12 +268,36 @@
             <div class="form-group">
 					PRODUCT Image
 					<input type="file" name="img">
-			</div>
+			</div> 
  			<div class="col-sm-4 col-sm-offset-3">
 				<input type="submit" name="submit" id="submit" tabindex="4" class="form-control btn btn-submit" value="SUBMIT">
 			</div>
-</form>
-
+		</form>
+		<div class="container">
+    <div class="row col-md-9  custyle">
+    <table class="table table-striped custab">
+    <thead>
+    
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>DESCRIPTION</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+            
+               <c:forEach items="${plist }" var="p">
+				<tr class="active">
+					<td>${p.productid}</td>
+					<td>${p.productname}</td>
+					<td>${p.productdescription }</td>
+					<td class="text-center"><a class='btn btn-info btn-xs' href="editProduct?id=${p.productid }"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="deleteProduct?id=${p.productid}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+				</tr>
+			</c:forEach>
+               
+    </table>
+    </div>
+</div>
 				
         </div>
       </div>

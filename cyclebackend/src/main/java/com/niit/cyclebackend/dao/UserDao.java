@@ -7,7 +7,6 @@ public interface UserDao
 
 	
 void saveUser(User u);
-	
-User getUser(String mailid);
+	User getUser(String mailid);
 
 }
