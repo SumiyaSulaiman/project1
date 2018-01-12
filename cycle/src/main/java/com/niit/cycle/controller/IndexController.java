@@ -51,21 +51,8 @@ public class IndexController {
 		return "login";
 	}
 	
-
-	@RequestMapping("/kids")
-	String kids(Model m)
-	{
-		
-		return "kids";
-	}
 	
 	
-	@RequestMapping("/women")
-	String women(Model m)
-	{
-		
-		return "women";
-	}
 	
 	@RequestMapping("/admin")
 	String admin(Model m)

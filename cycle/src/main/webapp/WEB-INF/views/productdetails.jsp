@@ -41,6 +41,9 @@ div.section > div > input {margin:0;padding-left:5px;font-size:10px;padding-righ
 </style>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+		<br><br>
+		<br>
+		<br>
         <div class="container">
         	<div class="row">
                <div class="col-xs-4 item-photo">
@@ -56,7 +59,7 @@ div.section > div > input {margin:0;padding-left:5px;font-size:10px;padding-righ
                     <br>
                     <h4 style="margin-top:0px;">${p.price}</h4>
         
-                    <!-- <!-- Detalles especificos del producto -->
+                  <!--  
                     <div class="section">
                         <h6 class="title-attr" style="margin-top:15px;" ><small>COLOR</small></h6>                    
                         <div>
@@ -70,19 +73,19 @@ div.section > div > input {margin:0;padding-left:5px;font-size:10px;padding-righ
                             <div class="attr2">16 GB</div>
                             <div class="attr2">32 GB</div>
                         </div>
-                    </div>   
+                    </div>    -->
+                    
                     <div class="section" style="padding-bottom:20px;">
-                        <h6 class="title-attr"><small>CANTIDAD</small></h6>                    
-                        <div>
-                            <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
+                        <h5 class="title-attr">Quantity</h5>
+                       <div>
+                        	<div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
                             <input value="1" />
                             <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
                         </div>
-                    </div>                 -->
-        
-                    <!-- Botones de compra -->
-                    <div class="section" style="padding-bottom:20px;">
-                        <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</button>
+                    </div>                     
+                    <input type="hidden" value="${p.productid }" name="productid">
+                    <div class="section" style="padding-bottom:20px;"><a href="shoppingcart">
+                        <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</button></a>
                         <h6><a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Agregar a lista de deseos</a></h6>
                     </div>                                        
                 </div>                              

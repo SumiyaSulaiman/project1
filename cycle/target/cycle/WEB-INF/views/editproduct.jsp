@@ -14,19 +14,19 @@
       <form id="Product" action="updateProduct" method="post" role="form" style="display: block;" enctype="multipart/form-data" >
       <input type="hidden" name="id" value="${p.productid}"/>
 			<div class="form-group">
-				<input type="text" name="productname" id="productname" tabindex="2" class="form-control" placeholder="Enter product name" value="${p.productname }">
+				<input type="text" name="productname" id="productname" tabindex="2" class="form-control" placeholder="Enter product name" value="${p.productname}" required }>
 			</div>
 
 			<div class="form-group">
-				<input type="text" name="productdescription" id="productDescription" tabindex="2" class="form-control" placeholder="About the product  " value="${p.productdescription }">
+				<input type="text" name="productdescription" id="productDescription" tabindex="2" class="form-control" placeholder="About the product  " value="${p.productdescription }" required>
 			</div>
 
 			<div class="form-group">
-				<input type="number" name="stock" id="quantity" tabindex="2" class="form-control" placeholder="enter stock " value="${p.stock }">
+				<input type="number" name="stock" id="quantity" tabindex="2" class="form-control" placeholder="enter stock " value="${p.stock }" required>
 			</div>
 
 			<div class="form-group">
-				<input type="number" name="price" id="price" tabindex="2" class="form-control" placeholder="enter price" value="${p.price }">
+				<input type="number" name="price" id="price" tabindex="2" class="form-control" placeholder="enter price" value="${p.price }" required>
 			</div>
 			
 

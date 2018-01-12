@@ -30,7 +30,7 @@ public class ProductController {
 	@Autowired
 	SupplierDao sdao;
 	
-	@RequestMapping(value="/saveProduct")
+	@RequestMapping(value="/admin/saveProduct")
 	ModelAndView saveproduct(@RequestParam("productname")String productname,@RequestParam("productdescription")String productdescription,@RequestParam("stock")int stock,@RequestParam("price")double price,@RequestParam("supid")int supid,@RequestParam("catid")int catid,@RequestParam("img") MultipartFile file)
 	{
 		Product p=new Product();
@@ -73,7 +73,7 @@ public class ProductController {
 		return mv;
 	    
 	}
-	@RequestMapping(value="/deleteProduct")
+	@RequestMapping(value="/admin/deleteProduct")
 	ModelAndView deleteproduct(@RequestParam("id")int productid)
 	{
 		Product p=pdao.getProduct(productid);
@@ -94,7 +94,7 @@ public class ProductController {
 	
 	
 	
-	@RequestMapping(value="/editProduct")
+	@RequestMapping(value="/admin/editProduct")
 	ModelAndView editproduct(@RequestParam("id")int productid)
 	{
 		Product p=pdao.getProduct(productid);
@@ -114,7 +114,7 @@ public class ProductController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/updateProduct")
+	@RequestMapping(value="/admin/updateProduct")
 	ModelAndView upproduct(@RequestParam("id")int id,@RequestParam("productname")String productname,@RequestParam("productdescription")String productdescription,@RequestParam("stock")int stock,@RequestParam("price")double price,@RequestParam("supid")int supid,@RequestParam("catid")int catid,@RequestParam("img") MultipartFile file)
 	{
 		Product p=pdao.getProduct(id);

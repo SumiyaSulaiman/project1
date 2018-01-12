@@ -20,7 +20,7 @@ public class SupplierController {
 	SupplierDao sdao;
 	
 	
-	@RequestMapping(value="/saveSupplier")
+	@RequestMapping(value="/admin/saveSupplier")
 	ModelAndView savesupplier(@RequestParam("supname")String supname,@RequestParam("supaddress")String supaddress)
 	{
 		Supplier s=new Supplier();
@@ -32,7 +32,7 @@ public class SupplierController {
 		ModelAndView mv=new ModelAndView("redirect:/admin") ;
 		return mv;
 	}
-	@RequestMapping(value="/deleteSup")
+	@RequestMapping(value="/admin/deleteSup")
 	ModelAndView deletesupplier(@RequestParam("id")int supid)
 	{
 		Supplier s=sdao.getSupplier(supid);
@@ -42,7 +42,7 @@ public class SupplierController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/editSup")
+	@RequestMapping(value="/admin/editSup")
 	ModelAndView editcategory(@RequestParam("id")int supid)
 	{
 		Supplier s=sdao.getSupplier(supid);
@@ -52,7 +52,7 @@ public class SupplierController {
 		mv.addObject("s", s);
 		return mv;
 	}
-	@RequestMapping(value="/updateSupplier")
+	@RequestMapping(value="/admin/updateSupplier")
 	ModelAndView upsupplier(@RequestParam("id")int id,@RequestParam("supname")String supname,@RequestParam("supaddress")String supaddress)
 	{
 		Supplier s=sdao.getSupplier(id);

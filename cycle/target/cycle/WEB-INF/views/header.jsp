@@ -14,15 +14,18 @@
 
 </head>
 <body>
- 
-<nav class="navbar navbar-inverse" >
 
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">CYCLE STORE</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="./">Home</a></li>
-      <li class="active"><a href="admin">Admin</a></li>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Cycle Store</a>
+	    </div>
+     <ul class="nav navbar-nav">
+      <li class="active"><a href="${pageContext.request.contextPath}/">Home</a></li>
+      <c:if test="${pageContext.request.userPrincipal.name  == 'admin123@gmail.com'}">
+      <li class="active"><a href="${pageContext.request.contextPath}/admin">Admin</a></li>
+       </c:if> 
+        <c:if test="${pageContext.request.userPrincipal.name  != 'admin123@gmail.com'}">
        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Category">Categories<span class="caret"></span></a>
         <ul class="dropdown-menu">
            <c:forEach items="${clist }" var="c">
@@ -30,7 +33,7 @@
           </c:forEach>
         </ul>
       </li>
-    
+      </c:if>
     
     <form class="navbar-form navbar-left">
       <div class="input-group">
@@ -42,20 +45,35 @@
         </div>
       </div>
     </form>
-    
-       
-      <li>&nbps;&nbps;&nbps;&nbps;&nbps;</li>
-      <li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li> <a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      <li>&nbps;</li>
     </ul>
-       <p></p>
-       <p>
+    
+      <ul class="nav navbar-nav navbar-right">
+       <c:if test="${pageContext.request.userPrincipal.name == null }">
+      <li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      </c:if>
+      <c:if test="${pageContext.request.userPrincipal.name == null }">
+      <li> <a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+       </li> </c:if>
+      <li>&nbps;</li>
+   
+       <li>
+     
+      	<c:if test="${pageContext.request.userPrincipal.name  != null}">
+					<li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
+					<li><a href='<c:url value="/j_spring_security_logout" />'>Logout</a></li>
+				</c:if>
+			</li>
+			<li>
+        <p></p>    
+           
+      <p> 
+       <c:if test="${pageContext.request.userPrincipal.name != null && pageContext.request.userPrincipal.name  != 'admin123@gmail.com'}">
+           
         <button type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-shopping-cart"></span><a href="shoppingcart"> Shopping Cart</a>
-        </button>
-      </p>
-  
+        </button></p>
+        </c:if></li>
+  </ul>
 </nav>
 
 <style>
@@ -66,3 +84,5 @@
 
 </body>
 </html>
+
+

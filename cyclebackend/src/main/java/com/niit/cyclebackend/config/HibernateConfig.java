@@ -13,6 +13,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 
+import com.niit.cyclebackend.model.Cart;
 import com.niit.cyclebackend.model.Category;
 import com.niit.cyclebackend.model.Product;
 import com.niit.cyclebackend.model.Supplier;
@@ -33,8 +34,8 @@ public class HibernateConfig
 	        sessionBuilder.addAnnotatedClass(Category.class);
 	        sessionBuilder.addAnnotatedClass(Supplier.class);
 	        sessionBuilder.addAnnotatedClass(Product.class);
-	        /*  sessionBuilder.addAnnotatedClass(Cart.class);
-	        sessionBuilder.addAnnotatedClass(Orders.class);*/
+	        sessionBuilder.addAnnotatedClass(Cart.class);
+	        /*   sessionBuilder.addAnnotatedClass(Orders.class);*/
 	        
 
 	        return sessionBuilder.buildSessionFactory();

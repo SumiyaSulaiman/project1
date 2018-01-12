@@ -16,10 +16,10 @@
     <form id="Supplier" action="updateSupplier"  method="post" role="form" style="display: block;">
     	<input type="hidden" name="id" value="${s.supid}"/>
 		<div class="form-group">
-			<input type="text" name="supname" id="Supname" tabindex="2" class="form-control" placeholder="Enter supplier name" value="${s.supname}">
+			<input type="text" name="supname" id="Supname" tabindex="2" class="form-control" placeholder="Enter supplier name" value="${s.supname}" required>
 		</div>
 		<div class="form-group">
-			<input type="text" name="supaddress" id="Supaddress" tabindex="2" class="form-control" placeholder="Enter Address" value="${s.supaddress}">
+			<input type="text" name="supaddress" id="Supaddress" tabindex="2" class="form-control" placeholder="Enter Address" value="${s.supaddress}" required>
 		</div>
 		<div class="col-sm-4 col-sm-offset-3">
 			<input  type="submit" name="submit" id="submit" tabindex="4" class="form-control btn btn-submit" value="SUBMIT">

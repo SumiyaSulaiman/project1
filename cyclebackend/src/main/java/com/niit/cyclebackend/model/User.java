@@ -12,7 +12,6 @@ public class User
 	
 	private String name;
 	@Id
-	
 	private String mail;
 	private String password;
 	private long phoneno;

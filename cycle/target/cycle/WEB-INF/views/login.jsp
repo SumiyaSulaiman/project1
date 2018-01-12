@@ -107,17 +107,15 @@
 
 
 <jsp:include page="header.jsp"></jsp:include>
-<!-- <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
 
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;"> -->
-    	  
+    	
     	  <div class="modal-dialog">
     	  		
 				<div class="loginmodal-container">
 					<h1>Login to Your Account</h1><br>
-				  <form>
-					<input type="text" name="user" placeholder="Username">
-					<input type="password" name="pass" placeholder="Password">
+				  <form action="j_spring_security_check" method="post"> 
+					<input type="text" name="j_username" placeholder="Username">
+					<input type="password" name="j_password" placeholder="Password">
 					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
 				  </form>
 					

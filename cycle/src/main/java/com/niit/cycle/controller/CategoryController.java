@@ -22,7 +22,7 @@ public class CategoryController {
 	@Autowired
 	CategoryDao cdao;
 	
-	@RequestMapping(value="/saveCategory")
+	@RequestMapping(value="/admin/saveCategory")
 	ModelAndView savecategory(@RequestParam("catname")String catname,@RequestParam("catdescription")String catdescription)
 	{
 		Category c=new Category();
@@ -36,7 +36,7 @@ public class CategoryController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/deleteCat")
+	@RequestMapping(value="/admin/deleteCat")
 	ModelAndView deletecategory(@RequestParam("id")int catid)
 	{
 		Category c=cdao.getCategory(catid);
@@ -46,7 +46,7 @@ public class CategoryController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/editCat")
+	@RequestMapping(value="/admin/editCat")
 	ModelAndView editcategory(@RequestParam("id")int catid)
 	{
 		Category c=cdao.getCategory(catid);
@@ -57,7 +57,7 @@ public class CategoryController {
 		mv.addObject("c", c);
 		return mv;
 	}
-	@RequestMapping(value="/updateCategory")
+	@RequestMapping(value="/admin/updateCategory")
 	ModelAndView upcategory(@RequestParam("id")int id,@RequestParam("catname")String catname,@RequestParam("catdescription")String catdescription)
 	{
 		Category c=cdao.getCategory(id);
