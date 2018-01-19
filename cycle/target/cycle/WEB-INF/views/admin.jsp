@@ -118,11 +118,7 @@
 	</form>
 	
 	<div class="container">
-    <div class="row col-md-9 col-md-offset-2 custyle">
-     <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <span class="glyphicon glyphicon-list"></span>Sortable Lists
-                    </div>
+    <div class="row col-md-8 col-md-offset-2 custyle">
     <table class="table table-striped custab">
     <thead>
     
@@ -147,7 +143,7 @@
 	</div>
 	
         </div>
-        </div>
+       
         <div class="tab-pane fade in" id="tab3">
          <br/>
       <div class="row">
@@ -198,7 +194,7 @@
 			</div>
 		</form>
 		<div class="container">
-    <div class="row col-md-9 col-md-offset-2 custyle">
+     <div class="row col-md-8 col-md-offset-2 custyle">
     <table class="table table-striped custab">
     <thead>
     

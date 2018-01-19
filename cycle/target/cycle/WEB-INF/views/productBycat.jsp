@@ -22,7 +22,7 @@ img{width:50%;height=auto;}
   <c:forEach items="${plist }" var="p">
   <div class="col-xs-3">
     <div class="thumbnail">
-      <a href="productdetails?id=${p.productid}">
+      <a href="${pageContext.request.contextPath}/productdetails?id=${p.productid}&cmsg=">
         <img src="${pageContext.request.contextPath}/resources/images/${p.productid}.jpg"  alt="" >
         <div class="caption">
           <p></p><p>${p.productname }<br>${p.price }</p>

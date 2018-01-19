@@ -1,11 +1,14 @@
 package com.niit.cyclebackend.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +31,9 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name="S_ID")
 	private Supplier supplier;
+	
+	@OneToMany(targetEntity=Cart.class,mappedBy="product")
+	private Set<Cart> cart;
 	
 	public int getProductid() {
 		return productid;

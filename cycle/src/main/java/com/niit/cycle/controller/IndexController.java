@@ -39,6 +39,9 @@ public class IndexController {
 	@RequestMapping("/register")
 	String register(Model m) 
 	{
+
+		List<Category> cs=cdao.getCategorys();
+  		m.addAttribute("clist", cs);
 		
 		return "registration";
 	}
@@ -47,10 +50,22 @@ public class IndexController {
 	@RequestMapping("/Login")
 	String Login(Model m)
 	{
+
+		List<Category> cs=cdao.getCategorys();
+  		m.addAttribute("clist", cs);
 		
 		return "login";
 	}
 	
+	
+	
+
+	@RequestMapping("/error")
+	String error()
+	{
+		
+		return "error";
+	}
 	
 	
 	

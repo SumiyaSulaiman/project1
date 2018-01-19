@@ -29,7 +29,7 @@
        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Category">Categories<span class="caret"></span></a>
         <ul class="dropdown-menu">
            <c:forEach items="${clist }" var="c">
-          <li><a href="productBycat?id=${c.catid}">${c.catname}</a></li>
+          <li><a href="${pageContext.request.contextPath}/productBycat?id=${c.catid}">${c.catname}</a></li>
           </c:forEach>
         </ul>
       </li>
@@ -49,13 +49,12 @@
     
       <ul class="nav navbar-nav navbar-right">
        <c:if test="${pageContext.request.userPrincipal.name == null }">
-      <li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="${pageContext.request.contextPath}/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       </c:if>
       <c:if test="${pageContext.request.userPrincipal.name == null }">
-      <li> <a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+      <li> <a href="${pageContext.request.contextPath}/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
        </li> </c:if>
-      <li>&nbps;</li>
-   
+     
        <li>
      
       	<c:if test="${pageContext.request.userPrincipal.name  != null}">
@@ -70,7 +69,7 @@
        <c:if test="${pageContext.request.userPrincipal.name != null && pageContext.request.userPrincipal.name  != 'admin123@gmail.com'}">
            
         <button type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-shopping-cart"></span><a href="shoppingcart"> Shopping Cart</a>
+          <span class="glyphicon glyphicon-shopping-cart"></span><a href="${pageContext.request.contextPath}/user/cart?cmsg="> Shopping Cart</a>
         </button></p>
         </c:if></li>
   </ul>

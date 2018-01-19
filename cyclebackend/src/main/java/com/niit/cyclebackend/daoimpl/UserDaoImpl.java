@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.cyclebackend.dao.UserDao;
+import com.niit.cyclebackend.model.Supplier;
 import com.niit.cyclebackend.model.User;
 @Repository("userDao")
 public class UserDaoImpl implements UserDao{
@@ -28,14 +29,16 @@ public class UserDaoImpl implements UserDao{
 		s.getTransaction().commit();
 		s.close();
 		
-		// TODO Auto-generated method stub
 		
 	}
 
 	public User getUser(String mailid) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		Session s=sf.openSession();
+		s.beginTransaction();
+		User s1=(User)s.get(User.class, mailid);
+		s.close();
+		return s1;
 	}
 
 }

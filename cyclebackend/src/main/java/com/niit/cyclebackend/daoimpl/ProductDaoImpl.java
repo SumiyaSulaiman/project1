@@ -22,6 +22,7 @@ public class ProductDaoImpl implements ProductDao {
 		s.beginTransaction();
 		s.save(p);
 		s.getTransaction().commit();
+		s.close();
 	}
 
 	public ProductDaoImpl() {
@@ -64,6 +65,7 @@ public class ProductDaoImpl implements ProductDao {
 	public Product getProduct(int id) {
 		Session s=sf.openSession();
 		Product p=(Product)s.get(Product.class, id);
+		s.close();
 		return p;
 	}
 

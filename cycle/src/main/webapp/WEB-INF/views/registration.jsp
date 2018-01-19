@@ -9,7 +9,7 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	
 	
-      <div class="container">
+      <div class="col-md-8">
 
     <form class="well form-horizontal" action="saveUser" method="post"  id="contact_form">
 <fieldset>
@@ -95,7 +95,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label"></label>
   <div class="col-md-4"><br>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+    <button type="submit" class="btn btn-warning"> SUBMIT <span class="glyphicon glyphicon-send"></span></button>
   </div>
 </div>
 

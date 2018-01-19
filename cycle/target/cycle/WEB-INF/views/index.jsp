@@ -43,9 +43,9 @@
   <div class="col-md-4">
     <div class="thumbnail">
       <a href="./resources/cycle10.jpg">
-        <img src="./resources/cycle10.jpg" style="width:100%">
+        <img src="./resources/cycle4.jpg" style="width:100%">
         <div class="caption">
-          <p>Lorem ipsum...</p>
+          <p>BSA LADYBIRD</p>
         </div>
       </a>
     </div>
@@ -53,9 +53,9 @@
   <div class="col-md-4">
     <div class="thumbnail">
       <a href="./resources/cycle6.jpg">
-        <img src="./resources/1.jpg" style="width:100%">
+        <img src="./resources/img5.jpg" style="width:100%">
         <div class="caption">
-          <p>Lorem ipsum...</p>
+          <p> ROADIO KID</p>
         </div>
       </a>
     </div>
@@ -65,7 +65,7 @@
       <a href="./resources/cycle7.jpg">
         <img src="./resources/cycle7.jpg"style="width:100%">
         <div class="caption">
-          <p>Lorem ipsum...</p>
+          <p>HERCULIES.</p>
         </div>
       </a>
     </div>

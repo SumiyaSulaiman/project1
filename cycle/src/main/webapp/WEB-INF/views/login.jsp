@@ -101,9 +101,10 @@
 .login-help{
   font-size: 12px;
 }
+
 </style>
 </head>
-<body  style="background-image: url('${pageContext.request.contextPath}/resources/bg2.jpg');">
+<body  style="background-image: url('${pageContext.request.contextPath}/resources/bg2.jpg);">
 
 
 <jsp:include page="header.jsp"></jsp:include>
@@ -118,11 +119,11 @@
 					<input type="password" name="j_password" placeholder="Password">
 					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
 				  </form>
-					
+					<!-- 
 				  <div class="login-help">
 					 <a href="#">Forgot Password</a>
 				  </div>
-				</div>
+				</div> -->
 			</div>
 		 	 
 <jsp:include page="footer.jsp"></jsp:include>

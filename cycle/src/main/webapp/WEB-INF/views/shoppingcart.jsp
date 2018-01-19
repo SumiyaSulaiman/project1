@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -49,7 +50,7 @@
 	<table id="cart" class="table table-hover table-condensed">
     				<thead>
 						<tr>
-							<th style="width:50%">Product</th>
+							<th style="width:30%">Product</th>
 							<th style="width:10%">Price</th>
 							<th style="width:8%">Quantity</th>
 							<th style="width:22%" class="text-center">Subtotal</th>
@@ -57,36 +58,50 @@
 						</tr>
 					</thead>
 					<tbody>
+					<c:set var="sum" value="0" />
+					 <c:forEach items="${calist}" var="ct">
 						<tr>
 							<td data-th="Product">
 								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="./resources/baby3.jpg" alt="..." class="img-responsive"/></div>
-									<div class="col-sm-10">
-										<h4 class="nomargin">baby cycle</h4>
-										<p>Luvlap Starlight Baby Ride On (Blue)</p>
+									
+										<div class="col-sm-2 hidden-xs"><img src="${pageContext.request.contextPath}/resources/images/${ct.product.productid}.jpg" alt="..." class="img-responsive"/></div>
+										<div class="col-sm-10">
+										<h4 class="nomargin">${ct.product.productname}</h4>
+										<p>${ct.product.productdescription}</p>
 									</div>
+									
+									
 								</div>
 							</td>
-							<td data-th="Price">1200</td>
+							<td data-th="Price">${ct.product.price}</td>
+							<form action="updateCart" method="post">
+							<input type="hidden" name="id" value="${ct.cid}"/>
+							<input type="hidden" name="pid" value="${ct.product.productid}"/>
 							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="1">
+								
+								<input type="number" class="form-control text-center" value="${ct.cartquantity}" min="1" name="qty">
+				
 							</td>
-							<td data-th="Subtotal" class="text-center">1200</td>
+							<td data-th="Subtotal" class="text-center">${ct.product.price*ct.cartquantity}</td>
 							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+								<c:set var="sum" value="${sum+ (ct.product.price*ct.cartquantity)}"/>
+								
+                         	       
+								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button></form>
+								<a href="deleteCart?id=${ct.cid}"><button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> </a></button>								
 							</td>
 						</tr>
+						 </c:forEach>
 					</tbody>
 					<tfoot>
 						<tr class="visible-xs">
-							<td class="text-center"><strong>Total 1200</strong></td>
+							<td class="text-center"><strong>Total ${sum}</strong></td>
 						</tr>
-						<tr>
-							<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+						<tr> 
+							<td><a href="${pageContext.request.contextPath}/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong>Total 1200</strong></td>
-							<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+							<td class="hidden-xs text-center"><strong>Total ${sum}</strong></td>
+							<td><a href="${pageContext.request.contextPath}/user/checkout" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
 						</tr>
 					</tfoot>
 				</table>

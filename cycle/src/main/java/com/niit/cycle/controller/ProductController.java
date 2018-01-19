@@ -84,10 +84,15 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/productdetails")
-	public String productdetails(@RequestParam("id")int productid, Model m)
+	public String productdetails(@RequestParam("id")int productid,@RequestParam("cmsg")String msg, Model m)
 	{
+		
 		Product p=pdao.getProduct(productid);
 		m.addAttribute("p",p);
+		m.addAttribute("cmsg",msg);
+		
+		List<Category> cs=cdao.getCategorys();
+  		m.addAttribute("clist", cs);
 		return "productdetails";
 		
 	}

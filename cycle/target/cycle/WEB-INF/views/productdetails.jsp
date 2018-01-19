@@ -50,45 +50,55 @@ div.section > div > input {margin:0;padding-left:5px;font-size:10px;padding-righ
                     <img style="max-width:100%;" src="${pageContext.request.contextPath}/resources/images/${p.productid}.jpg"  />
                 </div>
                 <div class="col-xs-5" style="border:0px solid gray">
-                    <!-- Datos del vendedor y titulo del producto -->
-                    <h1>${p.productname}</h1>    
-                    <h5 style="color:#337ab7">vendido por <a href="#">Samsung</a> · <small style="color:#337ab7">(5054 ventas)</small></h5>
+                   
+                     <h1> ${p.productname}</h1>    
+                     <h5 style="color:#337ab7"> ${p.productdescription}</h5>
         
                     <!-- Precios -->
-                    <h3 class="title-price">PRICE</h3>
+                    <!-- <h3 class="title-price">PRICE</h3> -->
                     <br>
-                    <h4 style="margin-top:0px;">${p.price}</h4>
-        
+                    <h3 style="margin-top:0px;">Rs.${p.price}</h3>
+       
                   <!--  
                     <div class="section">
                         <h6 class="title-attr" style="margin-top:15px;" ><small>COLOR</small></h6>                    
                         <div>
-                            <div class="attr" style="width:25px;background:#5a5a5a;"></div>
+                            <div class="attr" background:#5a5a5a;"></div>
                             <div class="attr" style="width:25px;background:white;"></div>
                         </div>
-                    </div>
-                    <div class="section" style="padding-bottom:5px;">
-                        <h6 class="title-attr"><small>CAPACIDAD</small></h6>                    
-                        <div>
-                            <div class="attr2">16 GB</div>
-                            <div class="attr2">32 GB</div>
-                        </div>
-                    </div>    -->
-                    
+                    </div> -->
+                                  
+                     
+                 		 <h4 class="title-attr" style="margin-top:15px;">Stock</h4>  
+                 		 <p></p>              
+                        <div class="form" >
+                    		
+								
+								 <div class="attr" style="width:50px";> ${p.stock}</div>
+				
+							
+                   		 </div>  
+                       
+                    <form action="${pageContext.request.contextPath}/user/addcart" method="POST">
+                   
+                        <h4 >Quantity</h4>
+                       <div class="form" style="width:50px";>
+                    		
+								
+								<input type="number" class="form-control text-center" value="1" min="1" name="qty">
+				
+							
+                   		 </div>  
+                     
+                     <input type="hidden" value="${p.productid}" name="productid">
+                    <br><br>
                     <div class="section" style="padding-bottom:20px;">
-                        <h5 class="title-attr">Quantity</h5>
-                       <div>
-                        	<div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
-                            <input value="1" />
-                            <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
-                        </div>
-                    </div>                     
-                    <input type="hidden" value="${product.id }" name="productid">
-                    <div class="section" style="padding-bottom:20px;"><a href="shoppingcart">
-                        <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</button></a>
-                        <h6><a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Agregar a lista de deseos</a></h6>
-                    </div>                                        
-                </div>                              
+                    	<center>
+                        <button type="submit" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</button> </form> 
+                        </center>
+                    </div> 
+                                                         
+                                        
          	
             </div>
         </div> 
